@@ -77,7 +77,10 @@
             setInterval(() => {
                 var skip_guanggao = document.getElementsByClassName("skippable-after")[0]
                 if (skip_guanggao) {
-                    skip_guanggao.click()
+                    // 防止无限弹窗, 具体弹窗原因还没找到...
+                    if (skip_guanggao.href === 'javascript:;' && skip_guanggao.style.display === 'none') {
+                        skip_guanggao.click()
+                    }
                 }
             }, 1000)
             break
